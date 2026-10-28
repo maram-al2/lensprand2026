@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury brown/beige palette */
+    --background: 36 27% 97%;          /* #FAF8F5 */
+    --foreground: 20 27% 19%;          /* #3E2C23 */
+    --card: 0 0% 100%;                 /* #FFFFFF */
+    --card-foreground: 20 27% 19%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 27% 19%;
+    --primary: 20 27% 28%;             /* #5C4033 */
+    --primary-foreground: 36 27% 97%;
+    --secondary: 30 34% 48%;           /* #8B6B4A */
+    --secondary-foreground: 36 27% 97%;
+    --muted: 33 30% 93%;               /* light beige */
+    --muted-foreground: 22 9% 38%;     /* #6E6259 */
+    --accent: 36 38% 82%;              /* #D8C3A5 */
+    --accent-foreground: 20 27% 19%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 33 30% 87%;              /* #E8DDD0 */
+    --input: 33 30% 87%;
+    --ring: 30 34% 48%;                /* secondary */
+    --chart-1: 20 27% 28%;
+    --chart-2: 30 34% 48%;
+    --chart-3: 36 38% 82%;
+    --chart-4: 22 9% 38%;
+    --chart-5: 33 30% 70%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 20 15% 12%;
+    --foreground: 36 27% 92%;
+    --card: 20 15% 16%;
+    --card-foreground: 36 27% 92%;
+    --popover: 20 15% 16%;
+    --popover-foreground: 36 27% 92%;
+    --primary: 36 38% 82%;
+    --primary-foreground: 20 27% 19%;
+    --secondary: 30 34% 55%;
+    --secondary-foreground: 36 27% 97%;
+    --muted: 20 12% 22%;
+    --muted-foreground: 33 20% 70%;
+    --accent: 30 34% 40%;
+    --accent-foreground: 36 27% 97%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 12% 28%;
+    --input: 20 12% 28%;
+    --ring: 30 34% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container-luxury {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .shadow-luxury {
+    box-shadow: 0 4px 24px -8px rgba(92, 64, 51, 0.12), 0 2px 8px -4px rgba(92, 64, 51, 0.08);
+  }
+  .shadow-luxury-lg {
+    box-shadow: 0 12px 48px -16px rgba(92, 64, 51, 0.18), 0 4px 16px -8px rgba(92, 64, 51, 0.1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(33 30% 93%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(30 34% 60%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(30 34% 48%);
+}
+
+/* Smooth fade-in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
